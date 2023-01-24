@@ -1,0 +1,13 @@
+- name: Instalação do Docker
+  hosts: docker
+  become: true
+  remote_user: marcelo
+  roles:
+    - docker
+
+
+  
+    
+
+
+
