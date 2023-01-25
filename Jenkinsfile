@@ -11,9 +11,11 @@ pipeline {
         }
        stage('Terraform apply'){
             steps{
-                dir("tf") {
-                    sh 'terraform apply --auto-approve'
-               }
+                catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+                    dir("tf") {
+                        sh 'terraform apply --auto-approve'
+                    }
+                }
             }
         }
        stage("Esperando pelos Containers"){
