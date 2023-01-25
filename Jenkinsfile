@@ -16,6 +16,11 @@ pipeline {
                }
             }
         }
+       stage("Esperando pelos Containers"){
+            steps{
+                sh 'sleep 60'
+            } 
+        }
        stage('Ansible Docker'){
             steps{
                 dir("ansible") {
